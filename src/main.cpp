@@ -1,5 +1,5 @@
 #include "vex.h"
-
+#include "pid.h"
 
 
 // A global instance of vex::brain used for printing to the V5 brain screen
@@ -12,10 +12,10 @@ int main() {
     while(1) {
        
         // Allow other tasks to run
-        rightforward.spin(vex::directionType::fwd,controller1.Axis3.value() - controller1.Axis1.value(),vex::velocityUnits::pct);
-        rightbackward.spin(vex::directionType::fwd,controller1.Axis3.value() - controller1.Axis1.value(),vex::velocityUnits::pct);
-        leftforward.spin(vex::directionType::rev,controller1.Axis3.value() + controller1.Axis1.value(),vex::velocityUnits::pct);
-        leftbackward.spin(vex::directionType::rev,controller1.Axis3.value() +controller1.Axis1.value(),vex::velocityUnits::pct);
+        right_1.spin(vex::directionType::fwd,controller1.Axis3.value() - controller1.Axis1.value(),vex::velocityUnits::pct);
+        right_2.spin(vex::directionType::fwd,controller1.Axis3.value() - controller1.Axis1.value(),vex::velocityUnits::pct);
+        left_1.spin(vex::directionType::rev,controller1.Axis3.value() + controller1.Axis1.value(),vex::velocityUnits::pct);
+        left_2.spin(vex::directionType::rev,controller1.Axis3.value() +controller1.Axis1.value(),vex::velocityUnits::pct);
         
         if (controller1.ButtonR1.pressing()){
           hand1.spin(vex::directionType::fwd,handmove,vex::velocityUnits::pct);
