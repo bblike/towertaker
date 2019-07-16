@@ -1,4 +1,4 @@
-#include "vex.h"
+
 #include "pid.h"
 
 
@@ -10,7 +10,7 @@
 int main() {
    double handmove = 100;
     while(1) {
-       
+       //jack is sb
         // Allow other tasks to run
         right_1.spin(vex::directionType::fwd,controller1.Axis3.value() - controller1.Axis1.value(),vex::velocityUnits::pct);
         right_2.spin(vex::directionType::fwd,controller1.Axis3.value() - controller1.Axis1.value(),vex::velocityUnits::pct);
@@ -51,8 +51,8 @@ int main() {
               arm.stop();
             }
             else{
-            arm.spin(vex::directionType::fwd,1,vex::velocityUnits::pct);}
+            arm.spin(vex::directionType::rev,1,vex::velocityUnits::pct);}
           }
-          else{arm.spin(vex::directionType::rev,23,vex::velocityUnits::pct);}
+          else{arm.spin(vex::directionType::fwd,20,vex::velocityUnits::pct);}
     }
    }
