@@ -13,11 +13,11 @@ float kp, ki, kd;
 float pid_calculate(float error, float integral, float difference)
 {
 		float output;
-		kp = 1;
-    ki = 0.0000003;
-    kd = 0.8;
+		kp = 10;//到达终点，来回跳
+    ki = 0;//0.00003，减速
+    kd = 0;//挪到终点 ，补偿
 
-		output = kp * error + ki * integral - kd * difference;
+		output = kp * error - ki * integral + kd * difference;
 		return output;
 }
 
@@ -44,7 +44,7 @@ void straight(float targetR, float targetL,float length)
     int sign_L =0;
 		int count = 0;
 		while(count <= 20){
-      garyR=(right_1.rotation(rotationUnits::deg)+right_2.rotation(rotationUnits::deg)) /720* length;
+      garyR=(right_1.rotation(rotationUnits::deg)+right_2.rotation(rotationUnits::deg))/720* length; 
       garyL=-(left_1.rotation(rotationUnits::deg)+left_2.rotation(rotationUnits::deg)) /720*length;
 
 			errorR = targetR - garyR;
